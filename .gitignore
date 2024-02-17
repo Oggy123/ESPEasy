@@ -19,7 +19,6 @@ pre_extra_script.py
 
 ## Project #####################
 lib/readme.txt
-src/Custom.h
 /ESPEasy
 test/output_export.cpp
 .vscode
@@ -53,8 +52,7 @@ build_output/
 
 **/__tmpfile.cpp
 
-src/_Custom.h
-src/*_*Custom.h
+
 
 dist/Espressif_flash_download_tool_v3.8.5/logs/
 
