@@ -16,7 +16,7 @@
  #define USES_P035   // IRTX
  #define P016_P035_Extended_AC // The following define is needed for extended decoding of A/C Messages and or using standardised 
                                  //common arguments for controlling all deeply supported A/C units
-// #define P016_P035_USE_RAW_RAW2 //Use the RAW and RAW2 encodings, disabling it saves 3.7Kb
+ #define P016_P035_USE_RAW_RAW2 //Use the RAW and RAW2 encodings, disabling it saves 3.7Kb
  #define USES_P088   // Heatpump IR
 
 // *** This file must be updated adding new supported devices when updating IRreceive8266 library ***
@@ -38,20 +38,20 @@
 // Change as desired after copying CustomIR-sample.h to CustomIR.h
 
 // #define DECODE_HASH 0
-// #define DECODE_RC5 0
-// #define SEND_RC5 0
-// #define DECODE_RC6 0
-// #define SEND_RC6 0
-// #define DECODE_NEC 0
-// #define SEND_NEC 0
+ #define DECODE_RC5 1
+ #define SEND_RC5 1
+ #define DECODE_RC6 1
+ #define SEND_RC6 1
+ #define DECODE_NEC 1
+ #define SEND_NEC 1
 // #define DECODE_SONY 0
 // #define SEND_SONY 0
 // #define DECODE_PANASONIC 0
 // #define SEND_PANASONIC 0
 // #define DECODE_JVC 0
 // #define SEND_JVC 0
-// #define DECODE_SAMSUNG 0
-// #define SEND_SAMSUNG 0
+ #define DECODE_SAMSUNG 1
+ #define SEND_SAMSUNG 1
 // #define DECODE_WHYNTER 0
 // #define SEND_WHYNTER 0
 // #define DECODE_AIWA_RC_T501 0
