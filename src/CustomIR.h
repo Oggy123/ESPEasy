@@ -10,14 +10,14 @@
 
 
 // Special plugins needing IR library
- #define USES_P016   // IR
- #define P016_SEND_IR_TO_CONTROLLER false //IF true then the JSON replay solution is transmited back to the condroller.
+// #define USES_P016   // IR
+// #define P016_SEND_IR_TO_CONTROLLER false //IF true then the JSON replay solution is transmited back to the condroller.
 // #define P016_FEATURE_COMMAND_HANDLING 0 // By default set to 1 to have the command table, that can be dsabled here
- #define USES_P035   // IRTX
+// #define USES_P035   // IRTX
  #define P016_P035_Extended_AC // The following define is needed for extended decoding of A/C Messages and or using standardised 
                                  //common arguments for controlling all deeply supported A/C units
- #define P016_P035_USE_RAW_RAW2 //Use the RAW and RAW2 encodings, disabling it saves 3.7Kb
- #define USES_P088   // Heatpump IR
+// #define P016_P035_USE_RAW_RAW2 //Use the RAW and RAW2 encodings, disabling it saves 3.7Kb
+// #define USES_P088   // Heatpump IR
 
 // *** This file must be updated adding new supported devices when updating IRreceive8266 library ***
 
@@ -120,8 +120,8 @@
 // #define SEND_HAIER_AC_YRW02 0
 // #define DECODE_WHIRLPOOL_AC 0
 // #define SEND_WHIRLPOOL_AC 0
-// #define DECODE_SAMSUNG_AC 0
-// #define SEND_SAMSUNG_AC 0
+ #define DECODE_SAMSUNG_AC 1
+ #define SEND_SAMSUNG_AC 1
 // #define DECODE_LUTRON 0
 // #define SEND_LUTRON 0
 // #define DECODE_ELECTRA_AC 0
@@ -140,8 +140,8 @@
 // #define SEND_VESTEL_AC 0
 // #define DECODE_TECO 0
 // #define SEND_TECO 0
-// #define DECODE_SAMSUNG36 0
-// #define SEND_SAMSUNG36 0
+ #define DECODE_SAMSUNG36 1
+ #define SEND_SAMSUNG36 1
 // #define DECODE_TCL112AC 0
 // #define SEND_TCL112AC 0
 // #define DECODE_LEGOPF 0

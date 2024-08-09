@@ -22,12 +22,13 @@
 // --- Feature Flagging ---------------------------------------------------------
 // Can be set to 1 to enable, 0 to disable, or not set to use the default (usually via define_plugin_sets.h)
 
-#define FEATURE_RULES_EASY_COLOR_CODE   1  // Use code highlighting, autocompletion and command suggestions in Rules
-#define FEATURE_ESPEASY_P2P             1  // (1/0) enables the ESP Easy P2P protocol
-#define FEATURE_ARDUINO_OTA             1  // enables the Arduino OTA capabilities
-#define FEATURE_THINGSPEAK_EVENT        1  // generate an event when requesting last value of a field in thingspeak via SendToHTTP(e.g. sendToHTTP,api.thingspeak.com,80,/channels/1667332/fields/5/last)
+#define FEATURE_RULES_EASY_COLOR_CODE   0  // Use code highlighting, autocompletion and command suggestions in Rules
+#define FEATURE_ESPEASY_P2P             0  // (1/0) enables the ESP Easy P2P protocol
+#define FEATURE_ARDUINO_OTA             0  // enables the Arduino OTA capabilities
+#define FEATURE_THINGSPEAK_EVENT        0  // generate an event when requesting last value of a field in thingspeak via SendToHTTP(e.g. sendToHTTP,api.thingspeak.com,80,/channels/1667332/fields/5/last)
 // #define FEATURE_SD                   1  // Enable SD card support
 // #define FEATURE_DOWNLOAD             1  // Enable downloading a file from an url
+
 
 #ifdef BUILD_GIT
 # undef BUILD_GIT
@@ -52,20 +53,20 @@
 #define DEFAULT_KEY2                         ""                      // Enter your fallback network WPA key
 #define DEFAULT_WIFI_INCLUDE_HIDDEN_SSID     false                   // Allow to connect to hidden SSID APs
 #define DEFAULT_USE_STATIC_IP                false                   // (true|false) enabled or disabled static IP
-#define DEFAULT_IP                           "192.168.0.50"          // Enter your IP address
+/*#define DEFAULT_IP                           "192.168.0.50"          // Enter your IP address
 #define DEFAULT_DNS                          "192.168.0.1"           // Enter your DNS
 #define DEFAULT_GW                           "192.168.0.1"           // Enter your Gateway
 #define DEFAULT_SUBNET                       "255.255.255.0"         // Enter your Subnet
 #define DEFAULT_IPRANGE_LOW                  "0.0.0.0"               // Allowed IP range to access webserver
 #define DEFAULT_IPRANGE_HIGH                 "255.255.255.255"       // Allowed IP range to access webserver
-#define DEFAULT_IP_BLOCK_LEVEL               0                       // 0: ALL_ALLOWED  1: LOCAL_SUBNET_ALLOWED  2:
-// ONLY_IP_RANGE_ALLOWED
+*/
+#define DEFAULT_IP_BLOCK_LEVEL               0                       // 0: ALL_ALLOWED  1: LOCAL_SUBNET_ALLOWED  2: ONLY_IP_RANGE_ALLOWED
 #define DEFAULT_ADMIN_USERNAME               "admin"
 #define DEFAULT_ADMIN_PASS                   ""
 
 #define DEFAULT_WIFI_CONNECTION_TIMEOUT      10000 // minimum timeout in ms for WiFi to be connected.
 #define DEFAULT_WIFI_FORCE_BG_MODE           false // when set, only allow to connect in 802.11B or G mode (not N)
-#define DEFAULT_WIFI_RESTART_WIFI_CONN_LOST  false // Perform wifi off and on when connection was lost.
+#define DEFAULT_WIFI_RESTART_WIFI_CONN_LOST  true // Perform wifi off and on when connection was lost.
 #define DEFAULT_ECO_MODE                     false // When set, make idle calls between executing tasks.
 #define DEFAULT_WIFI_NONE_SLEEP              false // When set, the wifi will be set to no longer sleep (more power
 // used and need reboot to reset mode)
@@ -109,13 +110,13 @@
                                                                             //   9 = FHEM HTTP
 
 #ifdef ESP8266
-#define DEFAULT_PIN_I2C_SDA                     4
+//#define DEFAULT_PIN_I2C_SDA                     4
 #endif
 #ifdef ESP32
 #define DEFAULT_PIN_I2C_SDA                     -1                // Undefined
 #endif
 #ifdef ESP8266
-#define DEFAULT_PIN_I2C_SCL                     5
+//#define DEFAULT_PIN_I2C_SCL                     5
 #endif
 #ifdef ESP32
 #define DEFAULT_PIN_I2C_SCL                     -1                // Undefined
@@ -213,7 +214,7 @@
 
 #define FEATURE_EXT_RTC  0         // Support for external RTC clock modules like PCF8563/PCF8523/DS3231/DS1307 
 
-#define FEATURE_PLUGIN_STATS  1    // Support collecting historic data + computing stats on historic data
+#define FEATURE_PLUGIN_STATS  0    // Support collecting historic data + computing stats on historic data
 #ifdef ESP8266
    #define FEATURE_ADC_VCC 1
 #  define PLUGIN_STATS_NR_ELEMENTS 16
@@ -221,7 +222,7 @@
 # ifdef ESP32
 #  define PLUGIN_STATS_NR_ELEMENTS 64
 #endif // ifdef ESP32
-#define FEATURE_CHART_JS  1        // Support for drawing charts, like PluginStats historic data
+#define FEATURE_CHART_JS  0        // Support for drawing charts, like PluginStats historic data
 
 // Optional alternative CDN links:
 // Chart.js: (only used when FEATURE_CHART_JS is enabled)
@@ -230,17 +231,17 @@
 // #define CDN_URL_JQUERY "https://code.jquery.com/jquery-3.6.0.min.js"
 
 
-// #define FEATURE_SETTINGS_ARCHIVE 1
-// #define FEATURE_I2CMULTIPLEXER 1
-// #define FEATURE_TRIGONOMETRIC_FUNCTIONS_RULES 1
+ #define FEATURE_SETTINGS_ARCHIVE 0
+ #define FEATURE_I2CMULTIPLEXER 0
+ #define FEATURE_TRIGONOMETRIC_FUNCTIONS_RULES 0
 // #define PLUGIN_USES_ADAFRUITGFX // Used by Display plugins using Adafruit GFX library
 // #define ADAGFX_ARGUMENT_VALIDATION  0 // Disable argument validation in AdafruitGFX_helper
 // #define ADAGFX_SUPPORT_7COLOR  0 // Disable the support of 7-color eInk displays by AdafruitGFX_helper
 // #define FEATURE_SEND_TO_HTTP 1 // Enable availability of the SendToHTTP command
 // #define FEATURE_POST_TO_HTTP 1 // Enable availability of the PostToHTTP command
 // #define FEATURE_PUT_TO_HTTP 1 // Enable availability of the PutToHTTP command
-// #define FEATURE_I2C_DEVICE_CHECK 0 // Disable the I2C Device check feature
-// #define FEATURE_I2C_GET_ADDRESS 0 // Disable fetching the I2C address from I2C plugins. Will be enabled when FEATURE_I2C_DEVICE_CHECK is enabled
+ #define FEATURE_I2C_DEVICE_CHECK 0 // Disable the I2C Device check feature
+ #define FEATURE_I2C_GET_ADDRESS 0 // Disable fetching the I2C address from I2C plugins. Will be enabled when FEATURE_I2C_DEVICE_CHECK is enabled
 // #define FEATURE_RTTTL 1   // Enable rtttl command
 // #define FEATURE_ANYRTTTL_LIB 1 // Use AnyRttl library for RTTTL handling
 // #define FEATURE_ANYRTTTL_ASYNC 1 // When AnyRttl enabled, use Async (nonblocking) mode instead of the default Blocking mode
@@ -307,7 +308,7 @@
 
 //#define WEBPAGE_TEMPLATE_HIDE_HELP_BUTTON
 
-#define SHOW_SYSINFO_JSON 1  //Enables the sysinfo_json page (by default is enabled when WEBSERVER_NEW_UI is enabled too)
+#define SHOW_SYSINFO_JSON 0  //Enables the sysinfo_json page (by default is enabled when WEBSERVER_NEW_UI is enabled too)
 
 /*
  #######################################################################################################
@@ -377,7 +378,7 @@ static const char DATA_ESPEASY_DEFAULT_MIN_CSS[] PROGMEM = {
 // #define USES_P018   // GP2Y10
 // #define USES_P019   // PCF8574
 
- #define USES_P020   // Ser2Net
+// #define USES_P020   // Ser2Net
 // #define USES_P021   // Level Control
 // #define USES_P022   // PCA9685
 // #define USES_P023   // OLED SSD1306
@@ -454,7 +455,7 @@ static const char DATA_ESPEASY_DEFAULT_MIN_CSS[] PROGMEM = {
 // #define USES_P084   // VEML6070
 // #define USES_P085   // AcuDC24x
 // #define USES_P086   // Receiving values according Homie convention. Works together with C014 Homie controller
- #define USES_P087   // Serial Proxy
+// #define USES_P087   // Serial Proxy
 // #define USES_P088   // HeatpumpIR
 // #define USES_P089   // Ping
 
@@ -548,7 +549,7 @@ static const char DATA_ESPEASY_DEFAULT_MIN_CSS[] PROGMEM = {
  */
 
 
- #define USES_C001   // Domoticz HTTP
+ //#define USES_C001   // Domoticz HTTP
 // #define USES_C002   // Domoticz MQTT
 // #define USES_C003   // Nodo telnet
 // #define USES_C004   // ThingSpeak
@@ -560,7 +561,7 @@ static const char DATA_ESPEASY_DEFAULT_MIN_CSS[] PROGMEM = {
 // #define USES_C010   // Generic UDP
 // #define USES_C011   // Generic HTTP Advanced
 // #define USES_C012   // Blynk HTTP
- #define USES_C013   // ESPEasy P2P network
+// #define USES_C013   // ESPEasy P2P network
 // #define USES_C014   // homie 3 & 4dev MQTT
 // #define USES_C015   // Blynk
 // #define USES_C016   // Cache controller
@@ -575,7 +576,7 @@ static const char DATA_ESPEASY_DEFAULT_MIN_CSS[] PROGMEM = {
  */
 
 
- #define USES_N001   // Email
+// #define USES_N001   // Email
 // #define USES_N002   // Buzzer
 
 
